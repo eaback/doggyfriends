@@ -23,21 +23,19 @@ const Header = () => {
                 <nav>
                     <ul className={active ? 'ul-item' : 'ul-item oicon'}>
                         <li>
-                            { /* icon */}
-                            <IoMdLogIn className='icon'/>
-                            <Link to='/login'>Login</Link>
-                            { /* link] / text*/ }
-                        </li>
-                        <li>
-                            { /* icon */}
                             <IoMdHome className='icon'/>
-                            <Link to='/home'>Home</Link>
-                            { /* link] / text*/ }
+                            <Link to='/'>Home</Link>
                         </li>
                         <li>
                             { /* icon */}
                             <IoMdList className='icon'/>
                             <Link to='/dog_catalog'>Dog Catalog</Link>
+                            { /* link] / text*/ }
+                        </li>
+                        <li>
+                            { /* icon */}
+                            <IoMdLogIn className='icon'/>
+                            <Link to='/dog'>Dog</Link>
                             { /* link] / text*/ }
                         </li>
                         <li>
