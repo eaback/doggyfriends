@@ -8,13 +8,15 @@ const Home = () => {
         <div className='home'>
             <Header/>
             <div className='info'>
-                Welcome!<br/>
+                <h1>Welcome!</h1>
                 <br/>
-                In the sidebar to your left you can visit<br/>
+                <p>In the sidebar to your left you can visit<br/>
                 the dog currently in our care<br/>
                 <br/>
-                If there are any questions<br/>
+                </p>
+                <p>If there are any questions<br/>
                 don't hesitate to contact us<br/>
+                </p>
             </div>
         </div>
     )

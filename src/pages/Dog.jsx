@@ -1,25 +1,30 @@
-// Dog.jsx
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-const Dog = () => {
-  const { id } = useParams();
+function Dog({ dogs }) {
+  const { dogName } = useParams();
 
-  // Fetch additional details for the specific dog using id
+  const selectedDog = dogs.find((dog) => dog.name === dogName);
+
+  if (!selectedDog) {
+    return <p>Dog not found</p>;
+  }
 
   return (
     <div>
-        <div>
-
-        </div>
-        <div>
-            <h2>Dog Details</h2>
-            <p>Details for Dog with ID: {id}</p>
-            {/* Render additional details here */}
-        </div>
+      <h2>{selectedDog.name}</h2>
+      {selectedDog.img && <img src={selectedDog.img} alt={selectedDog.name} />}
+      <p>Sex: {selectedDog.sex}</p>
+      <p>Breed: {selectedDog.breed}</p>
+      <p>Present: {selectedDog.present ? 'Yes' : 'No'}</p>
+      <p>Age: {selectedDog.age}</p>
+      <p>Chip Number: {selectedDog.chipNumber}</p>
+      <p>
+        Owner: {selectedDog.owner.name} {selectedDog.owner.lastName} (
+        {selectedDog.owner.phoneNumber})
+      </p>
     </div>
   );
-};
+}
 
 export default Dog;
