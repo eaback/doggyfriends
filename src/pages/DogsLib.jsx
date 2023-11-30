@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../components/Header'
 import './DogsLib.css'
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const DogList = () => {
+const DogsLib= () => {
 const [dogs, setDogs] = useState([]);
+const navigate = useNavigate();
 
 useEffect(() => {
     const fetchData = async () => {
@@ -28,24 +29,35 @@ useEffect(() => {
     fetchData();
 }, []); 
 
+const toggleDetails = (dogName) => {
+  // Navigate to the individual dog page
+  navigate(`/dog_catalog/${dogName}`);
+  };
 
-return (
-        <div>
-        <Header />
+  return (
+    <div className='dogpage'>
+      <Header />
+      <div className='container'>
         <ul>
-            {dogs.map((dog, index) => (
-            <li key={index}>
-                <Link to={`/dogs/${dog.name}`}>
-                <p>Name: {dog.name}</p>
-                <p>Sex: {dog.sex}</p>
-                <p>Breed: {dog.breed}</p>
-                <p>Present: {dog.present ? 'Yes' : 'No'}</p>
-                </Link>
+          {dogs.map((dog, index) => (
+            <li key={index} className='expanded'>
+              <div
+                className='dog-item'
+                onClick={() => toggleDetails(dog.name)}
+              >
+                <div>
+                  <p>Name: {dog.name}</p>
+                  <p>Sex: {dog.sex}</p>
+                  <p>Breed: {dog.breed}</p>
+                  <p>Present: {dog.present ? 'Yes' : 'No'}</p>
+                </div>
+              </div>
             </li>
-            ))}
+          ))}
         </ul>
-        </div>
-    );
-}
+      </div>
+    </div>
+  );
+};
 
 export default DogsLib;

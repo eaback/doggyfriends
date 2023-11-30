@@ -30,20 +30,12 @@ const Header = () => {
                             { /* icon */}
                             <IoMdList className='icon'/>
                             <Link to='/dog_catalog'>Dog Catalog</Link>
-                            { /* link] / text*/ }
                         </li>
                         <li>
-                            { /* icon */}
-                            <IoMdLogIn className='icon'/>
-                            <Link to='/dog'>Dog</Link>
-                            { /* link] / text*/ }
-                        </li>
-                        <li>
-                            { /* icon */}
-                            <IoMdContact className='icon'/>
-                            <Link to='/contact'>Contact</Link>
-                            { /* link] / text*/ }
-                        </li>
+                            {/* icon for Dog Details */}
+                            <IoMdImage className='icon'/>
+                            <Link to='/dog_catalog/:dogName'>Dog Details</Link>
+</li>
                     </ul>
                 </nav>
         </div>
